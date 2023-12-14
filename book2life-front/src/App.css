@@ -1,0 +1,798 @@
+/**********************************************************
+****************************TOOLS**************************
+***********************************************************/
+
+*{
+	box-sizing: border-box; 
+}
+
+:root {
+  --main-color-text: #262626;
+  --main-police: 'Lato-Regular', Arial, sans-serif;
+  --color-orange: #ff601a;
+}
+
+html{
+	font-size: 62.5%; 
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*Lato*/
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("assets/fonts/Lato/Lato-Bold.ttf") format("ttf"),     
+}
+ 
+@font-face {
+  font-family: "Lato-Light";
+  src: url("assets/fonts/Lato/Lato-Light.ttf") format("ttf"),     
+}
+ 
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("assets/fonts/Lato/Lato-Regular.ttf") format("ttf"),     
+}
+ 
+@font-face {
+  font-family: "Lato-Italic";
+  src: url("assets/fonts/Lato/Lato-Italic.ttf") format("ttf"),     
+}
+
+/*rubik-dirt*/
+@font-face {
+  font-family: "RubikDirt-Regular";
+  src: url("assets/fonts/Rubik_Dirt/RubikDirt-Regular.ttf") format("ttf"),     
+}
+
+/*SpecialElite-Regular*/
+@font-face {
+  font-family: "SpecialElite-Regular";
+  src: url("assets/fonts/Special_Elite/SpecialElite-Regular.ttf") format("ttf"),   
+}
+
+/*DynaPuff*/
+@font-face {
+  font-family: "DynaPuff";
+  src: url("assets/fonts/DynaPuff/DynaPuff-VariableFont_wdth,wght.ttf") format("ttf"), 
+}
+
+
+
+
+/**********************************************************
+***********************GENERALITES**************************
+***********************************************************/
+
+.App {
+  text-align: center;
+  padding: 1rem;
+  font-family: var(--main-police);
+  color: var(--main-color-text);
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  min-height:100vh; 
+	display:flex; 
+	flex-direction:column;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+#homePage{
+  background:url(assets/images/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    background-size: cover;
+}
+
+main {
+	flex-grow:1; 
+  padding-bottom: 8rem;
+}
+
+.titre_h1{
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 4rem;
+}
+
+.titre_h2{
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+
+.titre_h3{
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+
+.titre_h4{
+  font-size: 1.8rem;
+}
+
+img{
+	max-width:100%;
+	height:auto;
+}
+
+.App a{
+    text-decoration: none; 
+    color: var(--main-color-text);  
+}
+
+.trait
+{
+  border-bottom: 0.2rem solid var(--color-orange);
+  width: 40%;
+  margin: 4rem auto;
+}
+
+
+td {
+  vertical-align: middle;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+
+/**********************************************************
+****************************Header*************************
+***********************************************************/
+header{
+  padding: 1.2rem;
+  position: sticky; top: 0;
+  background-image:linear-gradient(to right, transparent,#ffffff);
+}
+
+#nav-pc{
+  display:none;
+}
+
+
+
+#nav-mobil{
+  display:flex;
+  align-items: center;
+}
+
+.header-nav nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav img{
+  width: 6rem;
+}
+
+#logo-name{
+  margin: 0;
+  color: var(--main-color-text);
+}
+
+#logo {
+  line-height: 0;
+}
+
+#nav-mobil a{
+  padding: 1rem;
+}
+
+#nav-mobil a:hover, #nav-pc a:hover{
+  color: var(--color-orange); 
+  transition: 0.5s;
+}
+
+
+/**********************************************************
+****************************Home***************************
+***********************************************************/
+
+/**************Slider*************/
+.bloc_search{
+  padding: 3rem;
+}
+
+.bloc_slider{
+  text-align : center;
+  border: 0.1rem solid black;
+  margin: 1rem;
+}
+
+.slide{
+  margin: 0 auto;
+}
+
+.slide img{
+  height: 20rem; 
+  width: auto;
+  margin: 0 auto;
+}
+
+.icon{
+  padding: 1rem;
+  font-size: 2.5rem;
+}
+
+.slide-buttons svg{
+  cursor: pointer;
+}
+
+/***********l'univers BD et Humour**********/
+
+.univers{
+  width: 47%;
+  height: 20rem;
+  border: 0.1rem solid black;
+  margin: 0.5rem;
+  border-radius: 1rem;
+}
+
+.univers div{
+  margin: 0;
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+  font-size: 3rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.univers div .theme:hover{
+  transform: scale(1.2);
+}
+
+.univers div .theme{
+  transition: 0.4s;
+}
+
+.link a{
+  color: #d02035;
+}
+
+/* effet sur le boutton "voir le détail*/
+.button:link, .button:visited {
+  background-color: white;
+
+  border: 0.2rem solid var(--color-orange);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover, .button:active {
+  background-color: var(--color-orange);
+  color: white;
+}
+
+/*BD jeunesse*/
+.univers:first-child{
+  background-color: #f26722;
+}
+
+/*romans graphiques*/
+.bloc_univers :nth-child(2){
+  background-color: #4ac3cc;
+}
+
+/*Humour*/
+.bloc_univers :nth-child(3){
+  background-color: #9ac93b;
+}
+
+/*BD historique*/
+.bloc_univers :nth-child(4){
+  background-color: #a782a1;
+}
+
+/*BD erotique*/
+.bloc_univers :nth-child(5){
+  background-color: #fdcc03;
+}
+
+/*comics*/
+.bloc_univers :nth-child(6){
+  background-color: #3efee7;
+}
+
+/*Manga*/
+.bloc_univers :nth-child(7){
+  background-color:  #08ae9a;
+}
+
+/*all*/
+.bloc_univers a, .bloc_univers a:hover{
+  color: #46323e;
+}
+
+
+/**********************************************************
+***************************Catégories**********************
+***********************************************************/
+
+.booksCard .book img{
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  max-height: 15rem;
+  width: auto;
+}
+
+.book{
+  background-color: #ffffff;
+}
+
+.bloc_univers{
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin: 0 auto;
+}
+
+.booksCard .book{
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  height: 55rem;
+  border: 0.1rem solid black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.prevNext_buttons svg path{
+  fill: var(--color-orange);
+}
+
+.prevNext_buttons{
+  margin: 0 auto;
+}
+
+.booksCard{
+  justify-content: center;
+}
+
+.tri{
+  margin: 1rem;
+}
+
+
+/**********************************************************
+****************************Détails************************
+***********************************************************/
+.details_left img{
+  max-height: 20rem;
+  width: auto;
+}
+
+.resume{
+  text-align: left;
+  margin: 2rem;
+}
+
+.add_favorite, .already_favorite, .delete_favorite{
+  margin: 1rem;
+}
+
+.already_favorite{
+  color: #ff601a;
+}
+
+
+/***********************Formulaires***********************
+******************login, register, forgot*****************
+*********************************************************/
+
+.form{
+  margin-bottom: 4rem;
+}
+
+.login{
+  padding: 1rem;
+}
+
+.fgt-psw a{
+  text-decoration: underline;
+  color: blue;
+}
+
+.fgt-psw {
+  padding: 1rem;
+}
+
+.register_button a{
+  background-color: #ff601a;
+  padding: 1rem;
+}
+
+.register_button a, .register_button a:hover{
+  color: #ffffff;
+}
+
+/*bouton de soumission des formulaire*/
+.submit-button{
+  margin-top: 1rem;
+}
+
+/*mb-3 et form-log: input des formulaire bootstrap*/
+.mb-3{
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.form-log{
+  font-size: 1.8rem;
+}
+
+
+/**********************************************************
+*********************** User admin ************************
+***************************admin***************************/
+.admin{
+  width: 90%;
+  margin: 8rem auto;
+}
+
+.edit_delete a{
+  color: var(--color-orange);
+}
+
+.addBook a{
+  color: var(--color-orange);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.addBook {
+  margin-bottom: 10rem;
+}
+
+/*********admin*********/
+.validateBD, .deleteBD{
+  margin: 1rem;
+}
+
+
+/**********************************************************
+****************************Footer *************************
+***********************************************************/
+
+footer .about{
+  border-top: 0.1rem solid #808080 ;
+  padding-top: 2rem;
+}
+
+footer .footerPolice{
+  color: #808080 ;
+  font-size: 1.5rem;
+}
+
+
+/**********************************************************
+*************************send message**********************
+***********************************************************/
+
+
+.formSendMessage{
+  margin: 5rem 1rem 0 1rem;
+  margin: 0 auto;
+}
+
+.formSendMessage div{
+  margin-top: 3rem;
+}
+
+.answerMessage a{
+  color: var(--color-orange);
+}
+
+.answerMessage{
+  margin-bottom: 5rem;
+  margin-left: 2rem;
+  text-align: left;
+}
+
+.sendMessage a{
+  color:#4ac3cc;
+}
+
+/**************************about, platforme*************************
+****************************privacy policy**************************
+*************************termes et conditions***********************/
+
+/*********généralité*********/
+#about p, #about ol, .footerLink p, .footerLink h3, .footerLink h4, .footerLink li {
+  text-align: left;
+  margin: 1.5rem 1.5rem;
+}
+
+
+#about li, .footerLink p {
+  padding-bottom: 2rem;
+}
+
+/*numérotation des titre*/
+.footerLink { counter-reset: h3counter; }
+.footerLink h3 { counter-reset: h4counter; }
+
+.footerLink h3::before{
+  counter-increment: h3counter;
+  content: counter(h3counter) ". ";
+}
+
+.footerLink h4::before{
+  counter-increment: h4counter;
+  content: counter(h3counter) "." counter(h4counter) ". ";
+}
+
+
+/*********about*********/
+#about img{
+  padding: 1rem;
+}
+
+.social a{
+  padding: 1rem;
+}
+
+.social a svg{
+  font-size: 3rem;
+}
+
+.social {
+  margin-top: 5rem;
+}
+
+
+/*********privacy_policy*********/
+.update_poilicy{
+  margin-bottom: 5rem;
+  font-style: italic;
+}
+
+.ancre, .ancre li a{
+  color:#4ac3cc;
+}
+
+
+#coords p{
+   margin: 0 4rem;
+   padding: 0;
+}
+
+.coords {
+  margin-top: 3rem;
+}
+
+/*********platform*********/
+.footerLink h3{
+  margin-top: 5rem;
+}
+
+
+/**********************************************************
+**********************MEDIAS QUERIES***********************
+***********************************************************/
+@media screen and (min-width: 768px){
+
+  /*********Header*********/
+  .header-nav img{
+    width: 10rem;
+  }
+
+  #nav-pc{
+    display:block;
+    display:flex;
+    align-items: center;
+  }
+
+  #nav-mobil{
+    display:none;
+  }
+
+  #nav-pc a{
+    padding: 2rem;
+  }
+
+   /*********Home*********/
+  .booksCard{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .booksCard .book{
+    width: 47%;
+    margin: 0;
+  }
+  
+  .bloc_univers, .booksCard{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .booksCard .book{
+    min-height: 43rem;
+    margin: 1rem;
+  }
+
+  .univers{
+    margin: 1rem;
+  }
+  
+  .booksCard .book img{
+    max-height: 20rem;
+  }
+
+  /*********Détails*********/
+  .details_left img{
+    max-height: 25rem;
+  }
+  
+  .resume{
+    width: 70%;
+    margin:0 auto;
+  }
+
+  /*********User admin*********/
+  .small_pict{
+    max-width: 15rem;
+  }
+
+  .edit_delete a, .edit_delete button{
+    margin: 1rem;
+  }
+
+  footer .about{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  /*********About, Privacy policy, Termes et conditions, plateforme *********/
+
+  #about, #privacy_policy, #TermesAndConditions,  #platform{
+    width: 80%;
+    margin: 0 auto;
+  }
+    
+}
+
+
+
+@media screen and (min-width: 900px){
+
+  /*********Home*********/
+  .slide img{
+    height: 30rem; 
+  }
+
+  .bloc_search{
+    display: flex;
+    justify-content: center;
+  }
+
+  .bloc_search div{
+    padding: 1rem;
+  }
+
+  .bloc_slider{
+    margin: 1rem 10rem;
+  }
+
+  .booksCard .book{
+    min-height: 48rem;
+  }
+
+  .bloc_univers, .booksCard{
+    width: 70%;
+  }
+  
+  .booksCard .book{
+    width: 31%;
+  }
+
+  .univers{
+    width: 31%;
+    text-align: center;
+  }
+  
+
+  .booksCard .book img{
+    max-height: 25rem;
+  }
+
+  #homePage .all{
+    margin-bottom: 10rem;
+  }
+
+
+  /*********Détails*********/
+  .details_left img{
+    max-height: 30rem;
+  }
+  
+  .resume{
+    margin:0;
+  }
+
+   
+  .details{
+    display: flex;
+  }
+
+  .details_left, .details_right, .details_right h3{
+    width: 50%;
+  }
+
+  .details_right{
+    text-align: left;
+  }
+
+  .details_right h3, .already_favorite{
+    margin-left: 0;
+  }
+
+  
+  /*********User admin*********/
+  .userAdmin{
+    width: 70%;
+  }
+  
+  .small_pict{
+    max-width: 20rem;
+  }
+
+
+  /*********About, Privacy policy, Termes et conditions, plateforme*********/
+
+  #about, #privacy_policy, #TermesAndConditions, #platform{
+    width: 70%;
+  }
+ 
+}
+
