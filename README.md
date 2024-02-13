@@ -25,7 +25,9 @@ Le dossier book2life-front gère tout le front:
 - **dossier helpers**: regroupe les fonctions utilitaires qui fournissent des fonctionnalités communes ou des fonctionnalités d'aide à d'autres parties de l'application.
 La fonction dans **formValidator.jsx** encapsule la logique de validation des données entrées par l'utilisateur dans les formulaires.
 Les fonction dans **Require-auth-admin.jsx** et **require-auth-user.jsx** sont utilisées pour vérifier si un utilisateur est authentifié avant de lui permettre l'accès à certaines parties de l'application. Elles encapsulent donc la logique d'authentification.
-- **dossier slices**: regroupe les "slices" ou les tranches de l'état global (**adminSlice.jsx**, **userSlice.jsx** et **bookSlice.jsx**) de l'application géré par Redux et le **store.jsx** qui centralise et gére l'état global de l'application.
+- **dossier slices**: regroupe les "slices" ou les tranches de l'état global de l'application géré par Redux et le **store.jsx** qui centralise et gére l'état global de l'application.
+**adminSlice.jsx** et **userSlice.jsx** permettent de gérer les informations sur l'utilisateur ou administrateur connecté, y compris les actions pour se connecter, se déconnecter, mettre à jour les informations utilisateur ou administrateur, etc.
+**bookSlice.jsx** permet de gérer les produits.
 - **config.js**: stocke l'URL de base de l'API et l'URL API pour afficher les images
 - **App.js**: c'est le point d'entrée principal de l'application. On y retrouve la structure de base de l'application, y compris les routes.
 
