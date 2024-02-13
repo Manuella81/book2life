@@ -2,31 +2,34 @@
 
 Bienvenue sur le projet book2life. Il s'agit d'un site fictif de vente, d’échange ou de don entre particulier de bandes dessinées
 d’occasion. Le prix à zéro ou null permet de savoir que c’est un livre gratuit.
+Le code respecte l'architecture MVC.
 Utilisation de react.js en front et de node.js pour le back.
 Connection à une base de données mysql.
 
-**Organisation du code :**
+**ORGANISATION DU CODE :**
 
 Le dossier api-back gère le backend:
-- Le serveur Express est configuré dans le fichier serveur.js
-- Dans le dossier public on a un dossier images qui contient toutes les bds
-- Le dossier models contient toutes les opération de base de données, toutes les opérations CRUD 
-- Le dossier routes contient toutes les routes qui va permettre à mon API de répondre à mes requêtes HTTP.
-- Utilisation du middleware userRoutes.js ou adminAuthRoutes.js pour les routes protégées, c'est à dire lorsque l'utilisateur ou l'administrateur doivent être connecté
-- Dans config.js et config.exemple sont stockés les informations pour la connection à la bdd.
+- Le serveur Express est configuré dans le fichier **server.js**. Il permet de démarrer le serveur et configurer les routes et les middlewares nécessaires pour répondre aux requêtes des clients.
+- Dans le **dossier public** on a un dossier images qui contient toutes les bds. Ce sont les ressources statiques.
+- Le **dossier models** contient les fichiers qui gèrent toutes les interactions avec la base de données. Ces fichiers encapsulent les logiques d'accès aux données. Manipulation des données avec le CRUD (Create, Read, Update, Delete)
+- Le **dossier routes** contient toutes les routes qui va permettre à mon API de répondre à mes requêtes HTTP. Ces routes définissent quelles actions doivent être prises en réponse à différentes méthodes HTTP telles que GET, POST, PUT, DELETE, etc. Elles définissent donc les points d'entrée de l'API et spécifient comment les requêtes HTTP entrantes doivent être gérées par le serveur.
+- Utilisation des middlewares **userRoutes.js** ou **adminAuthRoutes.js** pour les routes protégées, c'est à dire lorsque l'utilisateur ou l'administrateur doivent être connecté. Elles permettent donc de définir et gérer les routes liées à la gestion des utilisateurs de l'API.
+- Dans **config.js** et **config.exemple** sont stockés les variables de configuration de la base de données.
 
-Le dossier api-back gère tout le front:
-- dossier api: récupération des routes de l'api-back
-- dossier assets: les polices, logo et les images d'illustartions du front
-- dossier components:
-- dossier containers
-- dossier context:
-- dossier helpers:
-- dossier slices:
-- config.js:
-- App.js
+Le dossier book2life-front gère tout le front:
+- **dossier api**: récupération des routes de l'api-back. Permet de communiquer avec le serveur back-end afin d'accéder et de manipuler les données.
+- **dossier assets**: les polices, logo et les images d'illustartions du front
+- **dossier components**: utilisé pour organiser et regrouper les différents composants réutilisables de l'interface utilisateur. Chaque composant représente généralement une partie de l'interface utilisateur. 
+- **dossier containers**: utilisé pour regrouper les composants qui sont chargés de la logique d'interaction avec les données via des appels à l'API ou à un état global (Redux).
+- **dossier context**: le fichier **favoriteContext.js** permet de gérer l'état des favoris dans l'application. Ainsi, dans les composants de l'application qui ont besoin d'accéder aux données des favoris, j'utilise le hook useContext de React pour consommer le contexte et accéder aux données des favoris.
+- **dossier helpers**: regroupe les fonctions utilitaires qui fournissent des fonctionnalités communes ou des fonctionnalités d'aide à d'autres parties de l'application.
+La fonction dans **formValidator.jsx** encapsule la logique de validation des données entrées par l'utilisateur dans les formulaires.
+Les fonction dans **Require-auth-admin.jsx** et **require-auth-user.jsx** sont utilisées pour vérifier si un utilisateur est authentifié avant de lui permettre l'accès à certaines parties de l'application. Elles encapsulent donc la logique d'authentification.
+- **dossier slices**: regroupe les "slices" ou les tranches de l'état global de l'application géré par Redux et le **store.jsx** qui centralise et gére l'état global de l'application.
+- **config.js**: stocke l'URL de base de l'API et l'URL API pour afficher les images
+- **App.js**: c'est le point d'entrée principal de l'application. On y retrouve la structure de base de l'application, y compris les routes.
 
-**Organisation du site :**
+**ORGANISATION DU SITE :**
 
 **Page Home :**
 
@@ -72,3 +75,40 @@ Une fois connecté l’administrateur du site peut :
 validate «no » à validate « yes » dans la BDD lorsqu’il clique sur le bouton validé. La
 BD devient donc visible sur le site.
 - Il a accès à l’email de l’utilisateur afin de pouvoir communiquer avec lui.
+
+**QUELQUES CAPTURES D'ECRAN**
+
+HOMEPAGE
+![home](https://github.com/Manuella81/book2life/assets/101250152/7a7739c3-91ec-4144-8483-454d232e008a)
+
+LISTE DES BDS PAR LIEU
+![liste_lieu](https://github.com/Manuella81/book2life/assets/101250152/7003fe96-f475-46ef-8a37-a3208de3cae0)
+
+LISTE DES BDS PAR MOT CLE
+![liste_mots_cles](https://github.com/Manuella81/book2life/assets/101250152/5142edbb-e031-4176-ae10-a7f9b4a590d4)
+
+LES DIFFERENTES CATEGORIES
+![categories](https://github.com/Manuella81/book2life/assets/101250152/257817fb-8b6a-484d-b691-df3ae1674298)
+
+CATEGORIE JEUNESSE
+![bd_jeunesse](https://github.com/Manuella81/book2life/assets/101250152/10691eea-5f10-454d-85de-1cc4ace8d040)
+
+LISTE DES FAVORIS(utilisateur connecté)
+![favoris](https://github.com/Manuella81/book2life/assets/101250152/55df50d3-1ca4-4b48-a73d-ed0fa9c8a903)
+
+ESPACE UTILISATEUR(utilisateur connecté)
+![admin](https://github.com/Manuella81/book2life/assets/101250152/01595b74-c435-48b8-b05c-b7ecd168f089)
+
+MODIFIER UNE BD(utilisateur connecté)
+![modifier](https://github.com/Manuella81/book2life/assets/101250152/db90d080-bf37-41ab-8a6c-9d7532ee9648)
+
+ESPACE ADMINISTRATEUR(administrateur connecté)
+![espace_admin](https://github.com/Manuella81/book2life/assets/101250152/ef307ff6-47c1-462c-a304-98358ef02604)
+
+VALIDER OU NON UNE BD RAJOUTE PAR UN UTILISATEUR(utilisateur connecté)
+![admin_validate](https://github.com/Manuella81/book2life/assets/101250152/cdc62798-57da-4d4f-82c7-6cde31ee5885)
+
+A PROPOS
+![a_propos](https://github.com/Manuella81/book2life/assets/101250152/51c105b8-229f-49e9-95e6-13517280c017)
+
+
