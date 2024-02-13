@@ -48,7 +48,7 @@ de la catégorie
 - Une rubrique qui affiche les BDs gratuites de la catégorie
   
 
-**ESPACE UTILISATEUR :**
+**Espace utilisateur :**
 
 Pour pouvoir mettre en ligne ses BDs ou envoyer un message à un autre utilisateur ou pouvoir
 mettre des livres en favoris, l’utilisateur doit créer un compte. Une fois le compte crée il reçoit
@@ -67,7 +67,7 @@ Une fois connecté il peut :
 que le message soit enregistré dans la BDD).
 
 
-**ESPACE ADMINISTRATEUR DU SITE :**
+**Espace administrateur du site :**  
 
 C'est lui qui va valider ou non les livres que les utilisateur souhaite mettre en ligne. 
 Son tableau de bord se trouve dans le footer (connexion via le fontawesome double
