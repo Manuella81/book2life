@@ -13,7 +13,7 @@ Le dossier api-back gère le backend:
 - Dans le **dossier public** on a un dossier images qui contient toutes les bds. Ce sont les ressources statiques.
 - Le **dossier models** contient les fichiers qui gèrent toutes les interactions avec la base de données. Ces fichiers encapsulent les logiques d'accès aux données. Manipulation des données avec le CRUD (Create, Read, Update, Delete)
 - Le **dossier routes** contient toutes les routes qui va permettre à mon API de répondre à mes requêtes HTTP. Ces routes définissent quelles actions doivent être prises en réponse à différentes méthodes HTTP telles que GET, POST, PUT, DELETE, etc. Elles définissent donc les points d'entrée de l'API et spécifient comment les requêtes HTTP entrantes doivent être gérées par le serveur.
-- Utilisation des middlewares **withAuth.js** ou **withAuthAdmin.js** pour les routes protégées, c'est à dire lorsque l'utilisateur ou l'administrateur doivent être connecté. Elles permettent donc de définir et gérer les routes liées à la gestion des utilisateurs de l'API.
+- Utilisation des middlewares **withAuth.js** ou **withAuthAdmin.js** pour les routes protégées, c'est à dire lorsque l'utilisateur ou l'administrateur doivent être connecté. Elles permettent donc de définir et gérer les routes liées à la gestion des utilisateurs et administrateurs de l'API.
 - Dans **config.js** et **config.exemple** sont stockés les variables de configuration de la base de données.
 
 Le dossier book2life-front gère tout le front:
