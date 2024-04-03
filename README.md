@@ -1,7 +1,6 @@
 **BOOK2LIFE**
 
-Bienvenue sur le projet book2life. Il s'agit d'un site fictif de vente, d’échange ou de don entre particulier de bandes dessinées
-d’occasion. Le prix à zéro ou null permet de savoir que c’est un livre gratuit.
+Bienvenue sur le projet book2life. Il s'agit d'une plateforme de consommation fictive qui met en relation des particuliers, souhaitant donner, vendre, échanger ou acheter des bandes dessinées. Le prix à zéro ou null permet de savoir que c’est un livre gratuit.
 Le code respecte l'architecture MVC.
 Utilisation de react.js en front et de node.js pour le back.
 Connection à une base de données mysql.
