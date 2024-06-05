@@ -614,6 +614,79 @@ footer .footerPolice{
 
 
 /**********************************************************
+**************************MESSENGER*************************
+***********************************************************/
+
+#chat {
+  /*display:flex;*/
+  background-color: #eee3d3;
+  text-align: left;
+}
+
+.chat_right{
+  /*width: 70%;*/
+}
+
+.conversationList{
+  padding-left: 0;
+}
+
+#chat li{
+  list-style: none;
+}
+
+.scroller2{
+  padding:2rem;
+  /*padding:2rem;*/
+}
+
+.chat-bubble {
+  border-radius: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  color: #1c2c4c;
+  width: max-content;
+  /*max-width: 40%;*/
+  max-width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 10px;
+  /*margin: 2rem;*/
+}
+
+.chat-bubble.right {
+  background-color: #87CEEB;
+}
+
+.chat_header{
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
+  padding-left: 1rem;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+/* Style pour cacher la liste des conversations lorsque selectedConversationId est défini */
+.chat_left.hide-conversations {
+  /*display: block;*/
+  display: none;
+}
+
+.sendMsg{
+  display: flex;
+  justify-content: center;
+}
+
+.sendMsg textarea{
+  width: 80%;
+}
+
+
+
+
+
+
+/**********************************************************
 **********************MEDIAS QUERIES***********************
 ***********************************************************/
 @media screen and (min-width: 768px){
@@ -699,6 +772,45 @@ footer .footerPolice{
     width: 80%;
     margin: 0 auto;
   }
+
+  /*********messenger*********/
+  #chat {
+    display:flex;
+    margin-bottom: 3rem;
+  }
+  
+  .chat_right{
+    width: 70%;
+  }
+
+  .chat_right button{
+    display: none;
+  }
+
+  .chat_left{
+    width: 30%;
+    border-right: 1px solid;
+    background-color: #ffffff;
+  }
+  
+  
+  .scroller2{
+    padding:2rem;
+  }
+  
+  .chat-bubble {
+    max-width: 40%;
+    margin: 2rem;
+  }
+  
+  .chat_left.hide-conversations {
+    display: block;
+  }
+
+  .chat-bubble.right {
+    margin-left: auto;
+  }
+  
     
 }
 

@@ -30,7 +30,7 @@ const Home = (props) =>{
   const searchByLocation = ()=>{
     loadBooksByLocation(location)
     .then((res)=>{
-      ///console.log(res)
+      //console.log(res)
       setBooKs(res.result)
     })
   }

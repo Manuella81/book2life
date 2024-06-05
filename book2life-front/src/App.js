@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import RequireAuth from "./helpers/require-auth-user";
 import RequireAuthAdmin from "./helpers/require-auth-admin";
 
+
 import Header from './containers/header'
 import Footer from './containers/footer'
 import Home from './containers/home'
@@ -38,6 +39,7 @@ import Forgot from './containers/user/userForgot'
 import Profil from './containers/user/userProfil'
 import Favorite from './containers/user/favoris'
 import SendMessage from './containers/user/sendMessage'
+import Messenger from './containers/user/messenger'
 import UserAdmin from './containers/user/userAdmin'
 import EditBook from './containers/user/book/editBook'
 import AddBook from './containers/user/book/addBook'
@@ -93,6 +95,8 @@ function App() {
         <Route exact path="/favoris" element={<RequireAuth child={Favorite} auth={true} />}/>
         <Route exact path="/userAdmin" element={<RequireAuth child={UserAdmin} auth={true}/>}/>
         <Route exact path="/sendMessage/:id_book" element={<RequireAuth child={SendMessage} auth={true}/>}/>
+        <Route exact path="/messenger" element={<RequireAuth child={Messenger} auth={true}/>}/>
+        <Route exact path="/messenger/:conversationId" element={<RequireAuth child={Messenger} auth={true}/>}/>
         <Route exact path="/editBook/:id_book" element={<RequireAuth child={EditBook} auth={true}/>}/>
         <Route exact path="/addBook" element={<RequireAuth child={AddBook} auth={true}/>}/>
 
@@ -104,7 +108,7 @@ function App() {
         <Route exact path="/admin" element={<RequireAuthAdmin child={Admin} auth={true}/>}/>
         <Route exact path="/validateBook/:id_book" element={<RequireAuthAdmin child={ValidateBook} auth={true}/>}/>
         
-        <Route path="*" element={<Navigate to="/" />} />
+        {/*<Route path="*" element={<Navigate to="/" />} />*/}
       </Routes>
       
       <Footer/>

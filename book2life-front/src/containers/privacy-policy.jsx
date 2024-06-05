@@ -8,7 +8,7 @@ const PrivacyPolicy = (props)=>{
     return (
         <main id="privacy_policy" className='footerLink'>
             <h1 className='titre_h1'>Book2life Politique de confidentialité</h1>
-            <p className='update_poilicy'>Date de la dernière mmise à jour: 08/09/2022</p>
+            <p className='update_poilicy'>Date de la dernière mise à jour: 08/09/2022</p>
 
          
             <p>Sit earum porro aut asperiores dicta est consectetur quos? Ex officiis consequatur et accusantium dignissimos aut voluptatibus quod et esse ipsa. At internos accusantium non numquam similique et consequatur cumque ab aliquam veritatis. Et magni excepturi et odit Quis est recusandae omnis non soluta error aut ipsa consequuntur.</p>

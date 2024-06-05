@@ -7,16 +7,19 @@ import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import store from './slices/store'
 import {FavoriteProvider} from "./context/favoriteContext";
+import { ConversationProvider } from "./context/conversationContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <FavoriteProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-        </FavoriteProvider>
+    <FavoriteProvider>
+        <ConversationProvider> {/* Remplacez FavoriteProvider par ConversationProvider */}
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ConversationProvider>
+      </FavoriteProvider>
     </Provider>
   </React.StrictMode>
 );

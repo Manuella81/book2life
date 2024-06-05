@@ -5,7 +5,7 @@ import { faHouse, faUserGear, faHeart, faAddressCard, faPowerOff, faCircleInfo }
 import { useSelector } from "react-redux";
 import { selectUser } from "../slices/userSlice";
 import logo from '../assets/logo/logo.png'
-import { faFolderOpen } from "@fortawesome/free-regular-svg-icons";
+import { faFolderOpen, faMessage } from "@fortawesome/free-regular-svg-icons";
 
 //Header du site web
 const Header = (props) =>{
@@ -35,6 +35,7 @@ const Header = (props) =>{
                             <Link to="/favoris"><FontAwesomeIcon icon={faHeart}/></Link>
                             <Link to="/userProfil"><FontAwesomeIcon icon={faAddressCard}/></Link>
                             <Link to="/userAdmin"><FontAwesomeIcon icon={faFolderOpen}/></Link>
+                            <Link to="/messenger"><FontAwesomeIcon icon={faMessage}/>MSG</Link>
                             <Link to="/userLogout"><FontAwesomeIcon icon={faPowerOff}/></Link>
                         </div>
                     ) : ( 
@@ -54,6 +55,7 @@ const Header = (props) =>{
                             <Link to="/favoris"><FontAwesomeIcon icon={faHeart}/> Favoris</Link>
                             <Link to="/userProfil"><FontAwesomeIcon icon={faAddressCard}/> Mon profil</Link>
                             <Link to="/userAdmin"><FontAwesomeIcon icon={faFolderOpen}/>Admin </Link>
+                            <Link to="/messenger"><FontAwesomeIcon icon={faMessage}/>Messagerie</Link>
                             <Link to="/userLogout"><FontAwesomeIcon icon={faPowerOff}/></Link>
                         </div>
                         

@@ -127,7 +127,7 @@ class BookModel{
     
     //récupération des livres par catégorie
     static async getAllBookByCat(id_cat){
-    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE id_cat = ? AND books.validate = "yes"'
+    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user,nickName, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE id_cat = ? AND books.validate = "yes"'
     	    return db.query(sql, [id_cat])
             .then((response)=>{
                 return response;
@@ -140,7 +140,7 @@ class BookModel{
     
     //récupération des livres par sous-catégorie (tri_humour, tri_jeunesse, tri_mangaBygender, tri_mangaBytheme)
     static async getAllBookByTriHumour(id_tri){
-    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE id_tri_humour IS NOT NULL AND books.validate = "yes" AND id_tri_humour=?'
+    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user,nickName, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE id_tri_humour IS NOT NULL AND books.validate = "yes" AND id_tri_humour=?'
     	    return db.query(sql, [id_tri])
             .then((response)=>{
                 return response;
@@ -151,7 +151,7 @@ class BookModel{
 	}
 	
 	static async getAllBookByTriJeunesse(id_tri){
-    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE `id_tri_jeunesse` = ? AND `id_tri_jeunesse` IS NOT NULL AND books.validate = "yes"'
+    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user,nickName, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE `id_tri_jeunesse` = ? AND `id_tri_jeunesse` IS NOT NULL AND books.validate = "yes"'
     	    return db.query(sql, [id_tri])
             .then((response)=>{
                 return response;
@@ -162,7 +162,7 @@ class BookModel{
 	}
 	
 	static async getAllBookByTriMangaGender(id_tri){
-    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE `id_tri_mangaByGender` = ? AND id_tri_mangaByGender IS NOT NULL AND books.validate = "yes"'
+    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user,nickName, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE `id_tri_mangaByGender` = ? AND id_tri_mangaByGender IS NOT NULL AND books.validate = "yes"'
     	    return db.query(sql, [id_tri])
             .then((response)=>{
                 return response;
@@ -173,7 +173,7 @@ class BookModel{
 	}
 	
 	static async getAllBookByTriMangaTheme(id_tri){
-    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE `id_tri_mangaByTheme` = ? AND id_tri_mangaByTheme IS NOT NULL AND books.validate = "yes"'
+    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user,nickName, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE `id_tri_mangaByTheme` = ? AND id_tri_mangaByTheme IS NOT NULL AND books.validate = "yes"'
     	    return db.query(sql, [id_tri])
             .then((response)=>{
                 return response;
@@ -200,7 +200,7 @@ class BookModel{
 
 	//récupération des derniers livres gratuits par catégorie
     static async getFreeBoookByCat(id_cat){
-    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE price = 0 OR price IS NULL AND id_cat = ? AND books.validate = "yes"'
+    	let sql = 'SELECT `id_book`, city, `title`, `synopsis`, `price`, `photo`, `author`, `releaseDate`, `editor`, `numberOfPages`, `language`, books.creationTimestamp, `id_cat`, books.id_user, `id_bookState`, books.validate, `id_tri_humour`, `id_tri_jeunesse`, `id_tri_mangaByGender`, `id_tri_mangaByTheme` FROM `books` INNER JOIN user ON books.id_user = user.id_user WHERE (price = 0 OR price IS NULL) AND id_cat = ? AND books.validate = "yes"'
     	    return db.query(sql, [id_cat])
             .then((response)=>{
                 return response;
