@@ -82,28 +82,34 @@ BD devient donc visible sur le site.
 Mise en place d'un interface de communication en temps réel sur mon site web Book2life. Mon application de messagerie utilise Socket.IO pour permettre une communication en temps réel entre les utilisateurs. Socket.IO est une bibliothèque JavaScript qui permet la communication bidirectionnelle en temps réel entre le client et le serveur. Dans mon application, cela nous permet d'afficher instantanément les nouveaux messages et de notifier les utilisateurs lorsqu'ils reçoivent un nouveau message.
 
 *Configuration*:
+
   Pour commencer, j'ai intégré la bibliothèque Socket.IO côté client et côté serveur. Cela m'a permis d'établir une connexion WebSocket entre le navigateur des utilisateurs et notre serveur Node.js.
 
 *Base de données*:
+
   J'ai rajouté deux tables dans ma base de données pour pouvoirs manipuler les conversations et les messages dans mon applications
 
 **Utilisation de Socket.IO dans back-end**
 
 *Modèles: conversationModel.js et messageModel.js*:
+
   Ensuite, j'ai créé des modèles pour interagir avec la base de données et manipuler les conversations et les messages.
 
 *Routes: conversationRoute.js et messageRoute.js*:
+
   Pour les routes, j'ai créé des points de terminaison API pour récupérer les conversations, les messages, enregistrer de nouvelles conversations et messages, mettre à jour le statut des conversations, et supprimer les conversations et les messages associés. 
   Ces routes sont sécurisées avec un middleware appelé withAuth, qui assure que seuls les utilisateurs authentifiés peuvent accéder à ces ressources.
 
 *Server.js: Connexion au serveur Socket.IO*: 
-  Importation du module Socket.IO et Configuration du Serveur:
+
+    - Importation du module Socket.IO et Configuration du Serveur:
     - J'ai passé deux arguments à la fonction require('socket.io'). Le premier est le serveur HTTP sur lequel j'utilise Socket.IO. Le second est un objet de configuration, où je spécifie les paramètres CORS pour permettre les connexions depuis l'origine spécifiée 
     (http://localhost:9000) et autoriser les méthodes GET et POST.
     - Lorsque le composant principal de l'application est monté, nous établissons une connexion au serveur Socket.IO à l'aide de la fonction io(). Cette connexion utilise l'URL de notre serveur WebSocket, qui est configurée pour écouter sur le port 4000 dans notre 
     environnement de développement.
 
 *Gestion des Connexions Clients*:
+
   - Une fois que la connexion est établie entre le client et le serveur via Socket.IO, on peut écouter différents événements côté serveur.
   - J'ai mis en place  un  évènement 'connection', qui est déclenché à chaque fois qu'un client se connecte au serveur. À l'intérieur de cette fonction de rappel, j'ai défini la logique pour gérer les différents événements, comme l'envoi et la réception de messages, la   gestion des conversations, etc.
   - Pour la gestion des messages: mise en place d'une logique pour écouter l'événement 'message' côté serveur, qui est déclenché lorsque le client envoie un message. Le serveur reçoit le message et le transmet ensuite à tous les clients connectés en émettant un événement   'messageResponse'.
@@ -112,12 +118,14 @@ Mise en place d'un interface de communication en temps réel sur mon site web Bo
 **Utilisation de Socket.IO dans mon front-end**
 
 *Interaction avec l'api back: conversation.js et messages.js*:
+
   - Ces fichiers définissent les fonctions qui interagissent avec l'API backend pour gérer les conversations et les messages.
   - Ces fonction envoie des requête GET, POST, PUT ou DELETE à l'API backend pour charger des données, envoyer des données, mettre à jour des données ou supprimer des données..
   - Ces deux fonctions utilisent la bibliothèque Axios pour effectuer des requêtes HTTP asynchrones vers l'API backend, ce qui leur permet d'être exécutées de manière non bloquante. Elles suivent également les principes de la gestion des erreurs en utilisant la méthode 
   catch pour récupérer les erreurs éventuelles et les renvoyer pour une gestion ultérieure.
 
 *Gestion de l'envoi des messages: composant React SectionBooks*:
+
   - Dans ce composant j'ai ajouté une fonction handleSendMessage pour gérer l'envoi de messages. Dans cette fonction, je récupére les informations nécessaires telles que l'ID de l'utilisateur, l'ID du livre, etc. J'ai également dispatché des actions Redux pour            sélectionner le livre et charger les conversations de l'utilisateur.
   - En fonction des conversations chargées, je vérifie s'il existe une conversation existante entre l'utilisateur actuel et le destinataire du message concernant le livre. Si une conversation existe déjà, je charge les messages de cette conversation. Sinon, je créé une   nouvelle conversation en sauvegardant les détails de la conversation.
   - J'ai également implémenté une fonction displayConversationMessage pour charger les messages d'une conversation donnée.
@@ -137,6 +145,7 @@ Mise en place d'un interface de communication en temps réel sur mon site web Bo
   - J'ai rendu les conversations et les messages dans le DOM en fonction de leur état respectif.
 
 *Conclusion*:
+
   Grâce à Socket.IO, notre composant Messenger offre une expérience de messagerie en temps réel, permettant aux utilisateurs d'interagir instantanément les uns avec les autres. L'utilisation de WebSockets via Socket.IO simplifie considérablement la gestion des communications en temps réel dans notre application, offrant ainsi une expérience utilisateur fluide et réactive.
 
 
