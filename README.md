@@ -101,7 +101,6 @@ UTILISATION DE SOCKET.IO DANS MON BACK
   Ces routes sont sécurisées avec un middleware appelé withAuth, qui assure que seuls les utilisateurs authentifiés peuvent accéder à ces ressources.
   
   **Server.js: Connexion au serveur Socket.IO**: 
-  
       - Importation du module Socket.IO et Configuration du Serveur:
       - J'ai passé deux arguments à la fonction require('socket.io'). Le premier est le serveur HTTP sur lequel j'utilise Socket.IO. Le second est un objet de configuration, où je spécifie les paramètres CORS pour           permettre les connexions depuis l'origine spécifiée 
       (http://localhost:9000) et autoriser les méthodes GET et POST.
@@ -109,7 +108,6 @@ UTILISATION DE SOCKET.IO DANS MON BACK
       environnement de développement.
   
   **Gestion des Connexions Clients**:
-  
     - Une fois que la connexion est établie entre le client et le serveur via Socket.IO, on peut écouter différents événements côté serveur.
     - J'ai mis en place  un  évènement 'connection', qui est déclenché à chaque fois qu'un client se connecte au serveur. À l'intérieur de cette fonction de rappel, j'ai défini la logique pour gérer les différents          événements, comme l'envoi et la réception de messages, la   gestion des conversations, etc.
     - Pour la gestion des messages: mise en place d'une logique pour écouter l'événement 'message' côté serveur, qui est déclenché lorsque le client envoie un message. Le serveur reçoit le message et le transmet ensuite    à tous les clients connectés en émettant un événement   'messageResponse'.
@@ -118,7 +116,6 @@ UTILISATION DE SOCKET.IO DANS MON BACK
 UTILISATION DE SOCKET.IO DANS MON FRONT
 
   **Interaction avec l'api back: conversation.js et messages.js**:
-  
     - Ces fichiers définissent les fonctions qui interagissent avec l'API backend pour gérer les conversations et les messages.
     - Ces fonction envoie des requête GET, POST, PUT ou DELETE à l'API backend pour charger des données, envoyer des données, mettre à jour des données ou supprimer des données..
     - Ces deux fonctions utilisent la bibliothèque Axios pour effectuer des requêtes HTTP asynchrones vers l'API backend, ce qui leur permet d'être exécutées de manière non bloquante. Elles suivent également les 
@@ -126,7 +123,6 @@ UTILISATION DE SOCKET.IO DANS MON FRONT
     catch pour récupérer les erreurs éventuelles et les renvoyer pour une gestion ultérieure.
   
   **Gestion de l'envoi des messages: composant React SectionBooks**:
-  
     - Dans ce composant j'ai ajouté une fonction handleSendMessage pour gérer l'envoi de messages. Dans cette fonction, je récupére les informations nécessaires telles que l'ID de l'utilisateur, l'ID du livre, etc. J'ai 
  également dispatché des actions Redux pour            sélectionner le livre et charger les conversations de l'utilisateur.
     - En fonction des conversations chargées, je vérifie s'il existe une conversation existante entre l'utilisateur actuel et le destinataire du message concernant le livre. Si une conversation existe déjà, je charge les 
@@ -135,9 +131,7 @@ UTILISATION DE SOCKET.IO DANS MON FRONT
     - Enfin, dans le rendu du composant SectionBooks, j'affiche les détails du livre ainsi qu'un bouton "Envoyer un message" pour permettre aux utilisateurs d'initier ou de continuer une conversation si elle existe déjà.
   
   **Gestion de l'interface de la messagerie: composant React Messenger**:
-  
-    Dans mon composant Messenger, j'ai utilisé Socket.IO pour permettre une communication en temps réel entre les utilisateurs. Cette intégration nous permet d'afficher instantanément les nouveaux messages et d'indiquer 
- lorsque les utilisateurs sont en train de taper un message.
+    - Dans mon composant Messenger, j'ai utilisé Socket.IO pour permettre une communication en temps réel entre les utilisateurs. Cette intégration nous permet d'afficher instantanément les nouveaux messages et               d'indiquer lorsque les utilisateurs sont en train de taper un message.
   
     - Intégration la bibliothèque Socket.IO à mon application en important la bibliothèque côté client via import io from 'socket.io-client'.
     - Ensuite, dans la fonction principale du composant, j'ai établi une connexion au serveur Socket.IO en utilisant useEffect() avec une dépendance vide pour s'assurer que la connexion est établie une seule fois lors du 
