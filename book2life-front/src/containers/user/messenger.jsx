@@ -33,7 +33,7 @@ const Messenger = () => {
     const [bookTitle, setBookTitle] = useState(null);
     const [newMessageReceived, setNewMessageReceived] = useState({});
     const [oneConversation, setOneConversation] = useState(null);
-
+ 
 
     
     
@@ -59,7 +59,7 @@ const Messenger = () => {
 
                     // Faites défiler automatiquement la vue vers le bas pour afficher le nouveau message
                     if (messagesEndRef.current) {
-                        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+                        messagesEndRef.current.scrollIntoView({ behavior: "instant" });
                     }
 
                 }
@@ -100,7 +100,7 @@ const Messenger = () => {
                 socket.off('newConversation');
             }
         };
-    }, [socket, conversationId, user.infos.id_user]);
+    }, [socket, conversationId, user.infos.id_user, messages]);
 
 
     
@@ -382,8 +382,7 @@ const Messenger = () => {
             </div>
             
     
-            <div className="chat_right">  
-            
+            <div className="chat_right">             
                 
                 {selectedConversation && oneConversation &&(
                     <div>  
@@ -392,7 +391,7 @@ const Messenger = () => {
                             {/*Lorsque selectedConversationId est null, la condition {selectedConversationId && oneConversation && (...)} devient false.
                             Cela cache les messages de la conversation et réaffiche la liste des conversations. */}
                             {selectedConversation && (
-                                <button onClick={() => handleConversationClick(null)}>Retour aux conversations</button>
+                                <button className="back" onClick={() => handleConversationClick(null)}>Retour aux conversations</button>
                             )}        
                             <h2>Messages</h2>
 
@@ -414,22 +413,25 @@ const Messenger = () => {
                                     </div>                               
                                 )}
                             </div>
-    
-                            <form
-                                className='sendMsg'
-                                onSubmit={(e) => {
-                                    e.preventDefault();
-                                    onSubmitForm(e);
-                                }}
-                            >
-                                <textarea 
-                                    value={newMessageContent} 
-                                    onChange={handleInputChange} 
-                                    placeholder={isTyping ? "En train de taper..." : "Écrivez votre message ici..."}
-                                />
-                                <button>Envoyer</button>
-                            </form>
-                        </div>                    
+
+                            <div ref={messagesEndRef} />
+                        </div>   
+
+                        <form
+                            className='sendMsg'
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                onSubmitForm(e);
+                            }}
+                        >
+                            <textarea 
+                                value={newMessageContent} 
+                                onChange={handleInputChange} 
+                                placeholder={isTyping ? "En train de taper..." : "Écrivez votre message ici..."}
+                            />
+                            <button>Envoyer</button>
+                        </form>
+
                     </div>
                 )}
             </div>

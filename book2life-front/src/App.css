@@ -12,6 +12,7 @@
   --color-orange: #ff601a;
 }
 
+
 html{
 	font-size: 62.5%; 
 }
@@ -24,7 +25,6 @@ html{
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,7 +101,6 @@ html{
   margin: 0;
   padding: 0;
   font-size: 1.8rem;
-  min-height:100vh; 
 	display:flex; 
 	flex-direction:column;
 }
@@ -183,7 +182,7 @@ td {
 header{
   padding: 1.2rem;
   position: sticky; top: 0;
-  background-image:linear-gradient(to right, transparent,#ffffff);
+  background:linear-gradient(to right, transparent,#ffffff);
 }
 
 #nav-pc{
@@ -623,8 +622,8 @@ footer .footerPolice{
   text-align: left;
 }
 
-.chat_right{
-  /*width: 70%;*/
+.messages-wrapper{
+  min-height: 100vh;
 }
 
 .conversationList{
@@ -659,10 +658,9 @@ footer .footerPolice{
 
 .chat_header{
   position: fixed;
-  background-color: #ffffff;
+  background-color: 	rgba(255,255,255,0.9);
   width: 100%;
   padding-left: 1rem;
-  border-top: 1px solid;
   border-bottom: 1px solid;
 }
 
@@ -674,12 +672,21 @@ footer .footerPolice{
 
 .sendMsg{
   display: flex;
-  justify-content: center;
+  height: 5rem;
+  position: sticky;
+  bottom: 0;
 }
 
 .sendMsg textarea{
-  width: 80%;
+  width: 100%;
 }
+
+.chat_left, .chat_right {
+  height: 100vh; /* ou une hauteur appropriée */
+  overflow-y: auto; /* Activer le défilement vertical si nécessaire */
+}
+
+
 
 
 
@@ -783,7 +790,7 @@ footer .footerPolice{
     width: 70%;
   }
 
-  .chat_right button{
+  .back{
     display: none;
   }
 
